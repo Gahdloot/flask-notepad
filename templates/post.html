@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>The Post page</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<div>
+<h1 style="display:inline">All Post</h1>
+<a style="display:inline" class="btn btn-success float-right" href="/create">+ Create post</a>
+</div>
+
+<hr>
+{% for article in post%}
+    <h3> {{article.title}}</h3>
+    {% if article.author %}
+        <small> Author : {{article.author}} on {{article.date_posted.date()}}</small>
+    {% else %}
+        <p> author : N/A</p>
+    {% endif %}
+        <p style="white-space:pre-wrap"> {{article.content}}</p>
+    <a class="btn btn-danger" href="/post/delete/{{article.id}}">Delete</a>
+    <a class="btn btn-info" href="/post/edit/{{article.id}}">Edit</a>
+    <hr>
+{% endfor %}
+
+{% endblock %}

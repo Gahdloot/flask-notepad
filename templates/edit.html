@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>The Post page</title>
+{% endblock %}
+
+
+{% block body %}
+start to post
+
+<hr>
+    <h2>Update Blog Post</h2>
+        <form action="/post/edit/{{post.id}}" method="POST">
+            <label for="Title">Title</label>
+            <input class="form-control" type="text" value="{{post.title}}" aria-label="title" name="title" id="title">
+            <br>
+            <label for="Author">Author</label>
+            <input class="form-control" type="text" value="{{post.author}}" aria-label="author" name="author" id="author">
+            <br>
+            <label for="Content">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="3"  aria-label="Enter-Content">{{post.content}}</textarea>
+                    <br>
+
+            <input type="submit" value="SAVE" >
+
+</form>
+<hr>
+
+{% endblock %}
